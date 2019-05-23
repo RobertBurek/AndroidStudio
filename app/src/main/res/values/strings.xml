@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Nazwa Aplikacji</string>
     <string name="action_settings">Settings</string>
+    <string name="powitanie">Powitanie</string>
+    <string name="cze_robercie">Cześć Robercie!</string>
+    <string name="next">Next</string>
+    <string name="prev">Prev</string>
+    <string name="witam_serdecznie">Witam serdecznie</string>
+    <string name="siema_roberciku">Siema Roberciku!</string>
+    <string name="dzie_dobry">Dzień dobry</string>
 </resources>
