@@ -11,20 +11,33 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button mNextButton;
-    private Button PrevButton;
+    private Button mPrevButton;
+    private TextView mView1;
+    private List<String> mTekstyPowitalne = new ArrayList<String>();
+    private Integer mIndex = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mTekstyPowitalne.add("Cześć Robercie!!!");
+        mTekstyPowitalne.add("Dzień dobry przyjacielu.");
+        mTekstyPowitalne.add("Witam Roberciku.");
+        mTekstyPowitalne.add("Siema Robin.");
+        mTekstyPowitalne.add("Cześć kolego!!!");
+        mTekstyPowitalne.add("Witam Cię serdecznie.");
+        mTekstyPowitalne.add("Dzień dobry Robercie.");
 
-        final TextView view1 = findViewById(R.id.textView1);
-        final TextView view2 = findViewById(R.id.textView2);
-        final TextView view3 = findViewById(R.id.textView3);
-        final TextView view4 = findViewById(R.id.textView4);
+
+        mView1 = findViewById(R.id.textView1);
+        mView1.setText(mTekstyPowitalne.get(mIndex));
         mNextButton = findViewById(R.id.button_next);
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Kolejne powitanie zaraz na ekranie", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 //  view1.setVisibility(R.id.textView1);
+                if (mIndex < mTekstyPowitalne.size() - 1) mIndex++;
+                mView1.setText(mTekstyPowitalne.get(mIndex));
+
             }
         });
 
@@ -46,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Wysyłam informacje od Ciebie.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -74,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // w content_main.xml tworzymy android:OnClick="innyButtonClickHandler"
     public void innyButtonClickHandler(View view) {
         Snackbar.make(view, "Z metody w pliku XML", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
@@ -86,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
             Snackbar.make(view, "Poprzednie powitanie zaraz na ekranie", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             //view.setVisibility(R.id.textView1);
+            if (mIndex > 0) mIndex--;
+            mView1.setText(mTekstyPowitalne.get(mIndex));
+
 
         }
     }

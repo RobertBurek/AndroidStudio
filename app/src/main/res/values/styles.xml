@@ -17,4 +17,5 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <dimen name="margin_button">20dp</dimen>
 </resources>
